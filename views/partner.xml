@@ -1,0 +1,43 @@
+
+<odoo>
+
+    <data>
+   
+
+    <record id="opena_academy_partner_view_form" model="ir.ui.view">
+            <field name="name">Parnerts</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[3]" position="after">
+                    <page string="Sessions">
+                        <group>
+                         <!-- Add your fields here -->
+                    <field name="instructor" placeholder="Instructor"/>
+                    <field name="teacher1" />
+                    <field name="teacher2" />
+                    <field name="sessions" placeholder="sesiones asignadas"/>
+                    </group>
+                    </page>
+                   
+                </xpath>
+            </field>
+    </record>
+
+
+
+    <!-- res.partner action window -->
+    <record id="res_partner_action" model="ir.actions.act_window">
+        <field name="name">Partner</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem id="catPartner_menu_categ" name="Partners" parent="open_academy.menu_root" sequence="12" action="res_partner_action"/>
+
+    
+    </data>
+    
+    
+
+</odoo>

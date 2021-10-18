@@ -1,0 +1,79 @@
+<odoo>
+    
+    <data>
+    <record id="object0" model="open_academy.course">
+        <field name="title">Algebra</field>
+        <field name="description">Cursos basico de Algebra</field>
+    </record>
+    <record id="object1" model="open_academy.course">
+        <field name="title">Biologia</field>
+        <field name="description">Biologia para ingenieros</field>
+    </record>
+    <record id="object2" model="open_academy.course">
+        <field name="title">Filosofia</field>
+        <field name="description">Una clase muy importante</field>
+    </record>
+   
+<!-- Vista de Cursos -->
+ 
+    <record model="ir.ui.view" id="open_academy.list">
+      <field name="name">Open Academy list</field>
+      <field name="model">open_academy.course</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="title"/>
+          <field name="description"/>
+          <field name="user"/>
+          <field name="sessions"/>
+        </tree>
+      </field>
+    </record>
+<!--Vista de formulario-->
+    <record model="ir.ui.view" id="open_academy_course_view_form">
+      <field name="name">Open Academy List</field>
+      <field name="model">open_academy.course</field>
+      <field name="arch" type="xml">
+                    <form string="Courses">
+                        <sheet>
+                            <group>
+                                <field name="title"  placeholder="Ej. Algebra"/>
+                                <field name="description" />
+                                <field name="user" placeholder="Usuario Asignado"/>
+                                <field name="sessions" />
+                            </group>
+                        </sheet>
+                    </form>
+
+      </field>
+    </record>
+
+ 
+<!-- open_academy.course search view -->
+<record id="open_academy_course_view_search" model="ir.ui.view">
+    <field name="name">open_academy.course.view.search</field>
+    <field name="model">open_academy.course</field>
+    <field name="arch" type="xml">
+        <search string="Search Description">
+            <!-- Add your fields here -->
+            <field name="title" />
+            <field name="description"/>
+        </search>
+    </field>
+</record>
+
+ <!-- actions opening views on models -->
+
+<record model="ir.actions.act_window" id="open_academy.action_window">
+   <field name="name">Open Academy Courses</field>
+   <field name="res_model">open_academy.course</field>
+   <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Top menu item -->
+    <menuitem name="Open Academy" id="open_academy.menu_root"/>
+ 
+    <menuitem name="Cursos" id="open_academy.menu_1" parent="open_academy.menu_root" action="open_academy.action_window"/>
+
+    </data>
+</odoo>
